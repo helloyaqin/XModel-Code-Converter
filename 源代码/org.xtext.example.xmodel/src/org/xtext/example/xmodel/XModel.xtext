@@ -1,0 +1,66 @@
+grammar org.xtext.example.xmodel.XModel with org.eclipse.xtext.common.Terminals
+
+generate xModel "http://www.xtext.org/example/xmodel/XModel"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Package returns Package:
+	{Package}
+	'Package'
+	name=EString
+	'{'
+		('class' '{' class+=XClass ( "," class+=XClass)* '}' )?
+	'}';
+
+
+XClass returns XClass:
+	{XClass}
+	(isAbstract?='isAbstract')?
+	'XClass'
+	name=EString
+	'{'
+		('description' description=EString)?
+		('extend' extend=EString)?
+		('property' '{' property+=Property ( "," property+=Property)* '}' )?
+		('operation' '{' operation+=Operation ( "," operation+=Operation)* '}' )?
+	'}';
+
+EString returns ecore::EString:
+	STRING | ID;
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
+
+Property returns Property:
+	{Property}
+	'Property'
+	name=EString
+	'{'
+		('description' description=EString)?
+		('visibility' visibility=Visibility)?
+		('xtype' xtype=XType)?
+	'}';
+
+Operation returns Operation:
+	{Operation}
+	'Operation'
+	name=EString
+	'{'
+		('description' description=EString)?
+		('visibility' visibility=Visibility)?
+		('xtype' xtype=XType)?
+		('parameter' '{' parameter+=Parameter ( "," parameter+=Parameter)* '}' )?
+	'}';
+
+enum Visibility returns Visibility:
+				public = 'public' | protected = 'protected' | private = 'private';
+
+enum XType returns XType:
+				String = 'String' | Integer = 'Integer' | Short = 'Short' | Byte = 'Byte' | Long = 'Long' | Float = 'Float' | Double = 'Double' | Character = 'Character' | Boolean = 'Boolean';
+
+Parameter returns Parameter:
+	{Parameter}
+	'Parameter'
+	name=EString
+	'{'
+		('xtype' xtype=XType)?
+	'}';

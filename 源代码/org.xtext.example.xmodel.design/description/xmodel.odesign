@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="xmodel" version="12.0.0.2017041100">
+  <ownedViewpoints name="XMODEL">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Xmodel Diagram" domainClass="xModel::Package" enablePopupBars="true">
+      <metamodel href="http://www.xtext.org/example/xmodel/XModel#/"/>
+      <defaultLayer name="Default">
+        <containerMappings name="Package Container" labelDirectEdit="//@ownedViewpoints[name='XMODEL']/@ownedRepresentations[name='Xmodel%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Package%20Edit']" semanticCandidatesExpression="var:self" domainClass="xModel::Package">
+          <subContainerMappings name="XClass Container" labelDirectEdit="//@ownedViewpoints[name='XMODEL']/@ownedRepresentations[name='Xmodel%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='XClass%20Edit']" semanticCandidatesExpression="feature:class" domainClass="xModel::XClass" childrenPresentation="VerticalStack">
+            <subContainerMappings name="Property Container" semanticCandidatesExpression="feature:property" domainClass="xModel::Property" childrenPresentation="List">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="aql:self.visibility + ' ' + self.name + ': ' + self.xtype" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="Operation Container" semanticCandidatesExpression="feature:operation" domainClass="xModel::Operation" childrenPresentation="List">
+              <subNodeMappings name="ParameterNode" semanticCandidatesExpression="feature:parameter" domainClass="xModel::Parameter">
+                <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="aql:'    ' +  self.xtype  + ' ' +self.name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="aql:self.visibility + ' ' + self.xtype  + ' ' +self.name + '()'" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Tools">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="XClass Edit" precondition="ocl:true" inputLabelExpression="feature:name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Package Edit">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="XClass Creation" containerMappings="//@ownedViewpoints[name='XMODEL']/@ownedRepresentations[name='Xmodel%20Diagram']/@defaultLayer/@containerMappings[name='Package%20Container']/@subContainerMappings[name='XClass%20Container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="xModel::XClass" referenceName="class">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Class'+container.class->filter(xModel::XClass)->size()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Property Creation" containerMappings="//@ownedViewpoints[name='XMODEL']/@ownedRepresentations[name='Xmodel%20Diagram']/@defaultLayer/@containerMappings[name='Package%20Container']/@subContainerMappings[name='XClass%20Container']/@subContainerMappings[name='Property%20Container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="xModel::Property" referenceName="property">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'pro'+container.property->filter(xModel::Property)->size()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Operation Creation" containerMappings="//@ownedViewpoints[name='XMODEL']/@ownedRepresentations[name='Xmodel%20Diagram']/@defaultLayer/@containerMappings[name='Package%20Container']/@subContainerMappings[name='XClass%20Container']/@subContainerMappings[name='Operation%20Container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="xModel::Operation" referenceName="operation">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Op'+container.operation->filter(xModel::Operation)->size()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Parameter Creation" nodeMappings="//@ownedViewpoints[name='XMODEL']/@ownedRepresentations[name='Xmodel%20Diagram']/@defaultLayer/@containerMappings[name='Package%20Container']/@subContainerMappings[name='XClass%20Container']/@subContainerMappings[name='Operation%20Container']/@subNodeMappings[name='ParameterNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="xModel::Parameter" referenceName="parameter">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'pa'+container.parameter->filter(xModel::Parameter)->size()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.xtext.example.xmodel.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
